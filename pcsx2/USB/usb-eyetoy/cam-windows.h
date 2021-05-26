@@ -72,7 +72,7 @@ namespace usb_eyetoy
 
 		typedef void (*DShowVideoCaptureCallback)(unsigned char* data, int len, int bitsperpixel);
 
-		typedef struct
+		typedef struct MPEG_Buffer
 		{
 			void* start = NULL;
 			size_t length = 0;
