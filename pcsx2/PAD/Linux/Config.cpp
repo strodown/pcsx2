@@ -99,6 +99,7 @@ void PADLoadConfig()
 
 	wxString iniName(L"PAD.ini");
 	const std::string iniFile = std::string(EmuFolders::Settings.Combine(iniName).GetFullPath()); // default path, just in case
+	printf("OnePAD: Reading %s\n", iniFile.c_str());
 	f = fopen(iniFile.c_str(), "r");
 	if (f == nullptr)
 	{
@@ -150,6 +151,7 @@ void PADLoadConfig()
 		static constexpr const char* HINT_PREFIX = "SDL_HINT_";
 		if (strcmp(extra_name, "SDL2") == 0)
 		{
+			printf("Reconized mapping: '%s'\n", extra_value);
 			g_conf.sdl2_mapping.push_back(std::string(extra_value));
 		}
 		else if (strncmp(extra_name, HINT_PREFIX, strlen(HINT_PREFIX)) == 0)

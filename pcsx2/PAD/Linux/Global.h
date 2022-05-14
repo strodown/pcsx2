@@ -34,8 +34,8 @@
 
 #define PADdefs
 
-static const u32 GAMEPAD_NUMBER = 2;
-static const u32 MAX_KEYS = 24;
+static constexpr u32 GAMEPAD_NUMBER = 2;
+static constexpr u32 MAX_KEYS = 25;
 
 #include "Config.h"
 
@@ -53,6 +53,7 @@ enum gamePadValues
 	PAD_L3,       // Left joystick button (L3)
 	PAD_R3,       // Right joystick button (R3)
 	PAD_START,    // Start button
+	PAD_HOTKEY,   // Hotkey button
 	PAD_UP,       // Directional pad ↑
 	PAD_RIGHT,    // Directional pad →
 	PAD_DOWN,     // Directional pad ↓
@@ -81,6 +82,7 @@ static const std::array<gamePadValues, MAX_KEYS> all_keys =
 	PAD_L3,       // Left joystick button (L3)
 	PAD_R3,       // Right joystick button (R3)
 	PAD_START,    // Start button
+	PAD_HOTKEY,   // Hotkey button
 	PAD_UP,       // Directional pad ↑
 	PAD_RIGHT,    // Directional pad →
 	PAD_DOWN,     // Directional pad ↓
