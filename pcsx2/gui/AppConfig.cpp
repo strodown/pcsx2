@@ -169,8 +169,7 @@ namespace PathDefs
 			case DocsFolder_User:
 				return GetUserLocalDataDir();
 #else
-			case DocsFolder_User:
-				return (wxDirName)Path::Combine(wxStandardPaths::Get().GetDocumentsDir(), pxGetAppName());
+			case DocsFolder_User:   return (wxDirName)Path::Combine( wxStandardPaths::Get().GetDocumentsDir(), "configs/" + pxGetAppName() );
 #endif
 			case DocsFolder_Custom:
 				return CustomDocumentsFolder;
@@ -201,17 +200,17 @@ namespace PathDefs
 
 	wxDirName GetSnapshots()
 	{
-		return GetDocuments() + Base::Snapshots();
+		return wxDirName("/recalbox/share/screenshots");
 	}
 
 	wxDirName GetBios()
 	{
-		return GetDocuments() + Base::Bios();
+		return wxDirName("/recalbox/share/bios/ps2");
 	}
 
 	wxDirName GetCheats()
 	{
-		return GetDocuments() + Base::Cheats();
+		return wxDirName("/recalbox/share/cheats");
 	}
 
 	wxDirName GetCheatsWS()
@@ -221,31 +220,27 @@ namespace PathDefs
 
 	wxDirName GetDocs()
 	{
-#if !defined(PCSX2_APP_DOCDIR)
-		return AppRoot() + Base::Docs();
-#else
-		return wxDirName(PCSX2_APP_DOCDIR).MakeAbsolute(AppRoot().ToString());
-#endif
+		return wxDirName("/recalbox/share/system/configs/PCSX2/Docs");
 	}
 
 	wxDirName GetSavestates()
 	{
-		return GetDocuments() + Base::Savestates();
+		return wxDirName("/recalbox/share/saves/ps2");
 	}
 
 	wxDirName GetMemoryCards()
 	{
-		return GetDocuments() + Base::MemoryCards();
+		return wxDirName("/recalbox/share/saves/ps2");
 	}
 
 	wxDirName GetSettings()
 	{
-		return GetDocuments() + Base::Settings();
+		return wxDirName("/recalbox/share/system/configs/PCSX2");
 	}
 
 	wxDirName GetLogs()
 	{
-		return GetDocuments() + Base::Logs();
+		return wxDirName("/recalbox/share/system/logs");
 	}
 
 	wxDirName GetResources()
@@ -270,7 +265,7 @@ namespace PathDefs
 
 	wxDirName GetTextures()
 	{
-		return GetDocuments() + Base::Textures();
+		return wxDirName("/recalbox/share/saves/ps2/Textures");
 	}
 
 	wxDirName Get(FoldersEnum_t folderidx)
